@@ -9,7 +9,7 @@ export const POST = async (req: Request) => {
         if (!body || !rank) throw new Error('body and rank required');
         await sql`INSERT INTO Notes (body, rank) VALUES (${body}, ${rank})`;
         const {rows} = await sql`SELECT * FROM Notes`;
-        return NextResponse.json({addedItem: rows[rows.length -1]});
+        return NextResponse.json({addedNote: rows[rows.length -1]});
     }
     catch(error:any) {
         return NextResponse.json({error: error.message}, {status: 500});

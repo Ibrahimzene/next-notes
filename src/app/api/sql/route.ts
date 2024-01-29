@@ -7,7 +7,7 @@ export async function GET(request: Request) {
 		
 		// CREATE NOTES TABLE
 		await sql`CREATE TABLE IF NOT EXISTS Notes ( id SERIAL PRIMARY KEY, BODY VARCHAR(255), rank DECIMAL);`;
-		return NextResponse.json('ok', { status: 201});
+		return NextResponse.json('Tamam', { status: 201});
 	}
 	catch (error: any) {
 		return NextResponse.json(error.message, { status: 500 });

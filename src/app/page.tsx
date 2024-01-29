@@ -1,5 +1,6 @@
 "use client";
 import { Notes } from "@/components/Notes";
+import { NotesForm } from "@/components/NotesForm";
 import { INewNote, INote, blankNewNote } from "@/interfaces";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -27,11 +28,16 @@ export default function Home() {
 		<main className="p-6">
 			<>
 				<h1 className="text-2xl mb-3">Note Taker</h1>
-				{notes.length === 0 ? (
-					<p>Loading...</p>
-				) : (
-					<p>There are {notes.length} notes:</p>
-				)}
+
+				<NotesForm newNote={newNote} />
+
+				<section className="mt-4">
+					{notes.length === 0 ? (
+						<p>Loading...</p>
+					) : (
+						<p>There are {notes.length} notes:</p>
+					)}
+				</section>
 
 				<Notes notes={notes} />
 			</>

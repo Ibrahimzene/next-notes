@@ -1,12 +1,13 @@
-import { INewNote } from "@/interfaces";
+import { INewNote, blankNewNote } from "@/interfaces";
 import axios from "axios";
 
 interface IProps {
 	newNote: INewNote;
 	setNewNote: (newNote: INewNote) => void;
+	fetchAllNotes: () => void;
 }
 
-export const NotesForm = ({ newNote, setNewNote }: IProps) => {
+export const NotesForm = ({ newNote, setNewNote, fetchAllNotes }: IProps) => {
 	const handleFieldChange = (fieldIdCode: string, value: string) => {
 		switch (fieldIdCode) {
 			case "body":
@@ -20,6 +21,7 @@ export const NotesForm = ({ newNote, setNewNote }: IProps) => {
 				break;
 		}
 		setNewNote(structuredClone(newNote));
+		fetchAllNotes();
 	};
 
 	const handleFormSubmit = async () => {
@@ -31,6 +33,7 @@ export const NotesForm = ({ newNote, setNewNote }: IProps) => {
 			const response = await axios.post("/api/add-note", newNote, {
 				headers,
 			});
+			setNewNote(blankNewNote);
 		} catch (error: any) {
 			alert('your note could not be saved')
 		}

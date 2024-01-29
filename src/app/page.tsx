@@ -27,7 +27,7 @@ export default function Home() {
 	return (
 		<main className="p-6">
 			<>
-				<h1 className="text-2xl mb-3">Note Taker</h1>
+				<h1 className="text-2xl mb-3">Next Note Taker</h1>
 
 				<NotesForm newNote={newNote} setNewNote={setNewNote} fetchAllNotes={fetchAllNotes} />
 

@@ -7,5 +7,8 @@ content-type: application/json
 {
     "app_pin": "1234",
     "body": "Das ist die erste notiz",
-    "rank": 1.1
+    "rank": 2.2
 }
+
+### GET ALL NOTES
+POST {{url}}/api/get-notes

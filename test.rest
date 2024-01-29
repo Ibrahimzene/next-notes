@@ -5,7 +5,7 @@ POST {{url}}/api/add-note
 content-type: application/json
  
 {
-    "app_pin": "123",
-    "body": "this is the first note",
+    "app_pin": "1234",
+    "body": "Das ist die erste notiz",
     "rank": 1.1
 }

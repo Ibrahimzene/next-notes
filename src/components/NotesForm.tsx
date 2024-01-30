@@ -33,7 +33,7 @@ export const NotesForm = ({ newNote, setNewNote, fetchAllNotes }: IProps) => {
 			const response = await axios.post("/api/add-note", newNote, {
 				headers,
 			});
-			setNewNote(blankNewNote);
+			setNewNote(structuredClone(blankNewNote));
 			fetchAllNotes();
 		} catch (error: any) {
 			alert('your note could not be saved')
